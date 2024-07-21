@@ -13,7 +13,15 @@ body {
     padding: 0;
     margin: 0;
   }
-  #map {
-    height: 100%;
-    width: 100vw;
-  }
+
+#map {
+height: 100%;
+width: 100vw;
+}
+
+.custom-icon {
+    background: url('https://example.com/your-image.png') no-repeat center center;
+    background-size: cover;
+    width: 32px; /* Largeur de l'icône */
+    height: 32px; /* Hauteur de l'icône */
+}
