@@ -1,3 +1,38 @@
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+    max-width: 1120px;
+    margin-inline: 1.5rem;
+  }
+  
+.grid {
+display: grid;
+gap: 1.5rem;
+}
+
+.section {
+padding-block: 5rem 2rem;
+}
+
+.section__title {
+text-align: center;
+font-size: var(--h1-font-size);
+font-weight: var(--font-bold);
+margin-bottom: 2rem;
+}
+/*=============== CLASSIC ===============*/
+.main {
+    overflow: hidden;
+}
+.header{
+    /*position: fixed; <--------------------------------------------------------------------*/
+    text-align: center;
+    width: 100%;
+    top:0;
+    left:0;
+    background-color: transparent;
+    z-index: 1;/* <--------------------------------------------------------------------*/
+  }
+/*=============== OTHER ===============*/
 html, body {
     height: 100%;
     margin: 0;
@@ -12,16 +47,64 @@ html, body {
 body {
     padding: 0;
     margin: 0;
+    font-family: Arial, sans-serif;
   }
 
 #map {
-height: 100%;
-width: 100vw;
+    width: 100vw;
 }
 
-.custom-icon {
-    background: url('https://example.com/your-image.png') no-repeat center center;
-    background-size: cover;
-    width: 32px; /* Largeur de l'icône */
-    height: 32px; /* Hauteur de l'icône */
+
+
+.menu__container {
+    display: flex;
+    justify-content: space-between; /* Espace égal entre les éléments */
+    align-items: center; /* Centrage vertical des éléments */
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    border-radius: 10px 10px 0px 0px; /* Bordures arrondies pour le conteneur */
 }
+.menu__item {
+    flex: 1; /* Les éléments prennent un espace égal */
+    text-align: center; /* Centre le texte à l'intérieur de chaque élément */
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+/*=============== FOOTER ===============*/
+.footer{
+    background-color: white;
+  }
+  
+  .footer__container{
+  padding-block: 3rem 2rem;
+  row-gap: 3rem;
+  }
+  
+  .footer__links{
+    display:flex;
+    justify-content: center;
+    column-gap:2.5rem;
+  }
+  
+  .footer__link{
+    color: Arial;
+    font-weight: Arial;
+    transition: color .4s;
+  }
+  
+  .footer__link:hover{
+    color:grey;
+  }
+  
+  .footer__copy{
+    color: black;
+    font-size: Arial;
+    text-align:center;
+  }
