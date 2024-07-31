@@ -1,110 +1,168 @@
-/*=============== REUSABLE CSS CLASSES ===============*/
-.container {
-    max-width: 1120px;
-    margin-inline: 1.5rem;
+/*============ A GARDER ==============*/
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  /* 
+        Change favorite color
+        Default: hsl(230, 55%, 55%)
+        Purple: hsl(245, 55%, 55%) - Blue: hsl(210, 55%, 55%)
+        Pink: hsl(340, 55%, 55%) - Green: hsl(162, 55%, 55%)
+        Orange: hsl(14, 55%, 55%)
+
+        For more colors visit: https://colors.dopely.top/color-pedia
+        -> Choose any color 
+        -> Click on tab (Color Conversion)
+        -> Copy the color mode (HSL)
+  */
+  --hue: 220;
+
+  --first-color: hsl(var(--hue), 55%, 55%);
+  --first-color-light: hsl(var(--hue), 55%, 65%);
+  --first-color-alt: hsl(var(--hue), 50%, 50%);
+  --title-color: hsl(var(--hue), 30%, 50%);
+  --title-color-dark-mode: hsl(var(--hue), 30%, 95%);
+  --text-color: hsl(var(--hue), 20%, 80%);
+  --text-color-light: hsl(var(--hue), 20%, 70%);
+  --body-color: hsl(var(--hue), 40%, 84%);
+  --body-color-dark-mode: hsl(var(--hue), 40%, 16%);
+  --container-color: hsl(var(--hue), 40%, 20%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Syne", sans-serif;
+  --biggest-font-size: 3rem;
+  --big-font-size: 1.5rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography==========*/
+@media screen and (min-width: 1150px) {
+  :root {
+    --biggest-font-size: 5.5rem;
+    --big-font-size: 2.75rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1.125rem;
+    --small-font-size: .875rem;
   }
-  
+}
+/*=============== REUSABLE CSS CLASSES ===============*/
+
+
 .grid {
-display: grid;
-gap: 1.5rem;
+  display: grid;
+  gap: 1.5rem;
 }
 
 .section {
-padding-block: 5rem 2rem;
+  padding-block: 5rem 2rem;
 }
 
 .section__title {
-text-align: center;
-font-size: var(--h1-font-size);
-font-weight: var(--font-bold);
-margin-bottom: 2rem;
+  text-align: center;
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-bold);
+  margin-bottom: 2rem;
 }
+
 /*=============== CLASSIC ===============*/
-.main {
-    overflow: hidden;
-}
-.header{
-    /*position: fixed; <--------------------------------------------------------------------*/
-    text-align: center;
-    width: 100%;
-    top:0;
-    left:0;
-    background-color: transparent;
-    z-index: 1;/* <--------------------------------------------------------------------*/
-  }
-/*=============== OTHER ===============*/
-html, body {
-    height: 100%;
-    margin: 0;
-}
-.leaflet-container {
-    height: 400px;
-    width: 600px;
-    max-width: 100%;
-    max-height: 100%;
-}
-
+html,
 body {
-    padding: 0;
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
+  height: 100%;
+  margin: 0;
+  padding:0;
+  font-family: var(--body-font);
+  color:var(--body-font);
+}
 
+
+html {
+  scroll-behavior: smooth;
+}
+
+/*=============== HEADER ===============*/
+
+
+
+.header {
+  text-align: center;
+  width: 100%;
+  top:0;
+  left: 0;
+  background-color: transparent;
+  border-bottom:1px solid grey;
+}
+.title_container{
+  position:relative;
+  top:50%;
+}
+.header h1{
+  margin-left:24px;
+  text-align: left;
+  font-family: var(--body-font);
+  font-weight: var(--font-bold);
+  font-size: var(--normal-font-size);
+  color: var(--title-color);
+}
+
+/*===============  MAIN  ===============*/
+.main {
+  height:85%;
+}
 #map {
-    width: 100vw;
+  
+  height:100%;
+  width: 100%;
 }
-
-
-
-.menu__container {
-    display: flex;
-    justify-content: space-between; /* Espace égal entre les éléments */
-    align-items: center; /* Centrage vertical des éléments */
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    border-radius: 10px 10px 0px 0px; /* Bordures arrondies pour le conteneur */
-}
-.menu__item {
-    flex: 1; /* Les éléments prennent un espace égal */
-    text-align: center; /* Centre le texte à l'intérieur de chaque élément */
-}
-
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
-
 /*=============== FOOTER ===============*/
-.footer{
-    background-color: white;
-  }
-  
-  .footer__container{
-  padding-block: 3rem 2rem;
+.footer {
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+  background-color: white;
+  border-top: 1px solid grey;
+  /*padding-top: 10px;*/
+}
+
+.footer__container {
   row-gap: 3rem;
-  }
-  
-  .footer__links{
-    display:flex;
-    justify-content: center;
-    column-gap:2.5rem;
-  }
-  
-  .footer__link{
-    color: Arial;
-    font-weight: Arial;
-    transition: color .4s;
-  }
-  
-  .footer__link:hover{
-    color:grey;
-  }
-  
-  .footer__copy{
-    color: black;
-    font-size: Arial;
-    text-align:center;
-  }
+  width:100%;
+}
+
+.footer__links {
+  display: flex;
+  justify-content: center;
+  column-gap: 2.5rem;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.footer__link {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+  transition: color .4s;
+}
+
+.footer__link:hover {
+  color: grey;
+}
