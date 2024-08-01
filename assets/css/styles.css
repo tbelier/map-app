@@ -109,7 +109,7 @@ html {
   top:0;
   left: 0;
   background-color: transparent;
-  border-bottom:1px solid grey;
+  border-bottom:1px solid #ddd;
 }
 .title_container{
   position:relative;
@@ -127,11 +127,73 @@ html {
 /*===============  MAIN  ===============*/
 .main {
   height:85%;
+  background-color: #e6e9f0;
+  display:flex;
+  flex-direction: column;
 }
 #map {
   
   height:100%;
   width: 100%;
+}
+
+
+/*===============  HOME  ===============*/
+#json-editor{
+  display:flex;
+  justify-content:center;
+  margin-bottom:20px;
+}
+
+json-input{
+width: 70%;
+margin-right: 10px;
+}
+
+button{
+  padding:10px 20px;
+  cursor:pointer;
+}
+
+#json-viewer{
+  white-space: pre-wrap;
+  background-color: #fff;
+  padding:20px;
+  border: 1px solid #ddd;
+}
+
+/*=============== ACCOUNT ==============*/
+.account__container {
+  margin-top:10px;
+  text-align: left;
+  margin-left:5px 0px;
+  background-color: white;
+  padding: 22px;
+  border-radius: 5px;
+}
+
+.account__sub__container{
+  display:flex;
+  align-items:center;
+  justify-content: space-around;
+
+}
+
+.account__button__edit{
+  border: 1px solid #ccc;
+  margin: 5px;
+  background-color: white;
+  width: 100%;
+}
+.account__other{
+  background-color: white;
+  border-radius: 5px;
+}
+.account__img {
+  width: 64px;
+  height: 64px;
+  border: 4px solid #ccc;
+  border-radius: 50%;
 }
 /*=============== FOOTER ===============*/
 .footer {
@@ -139,7 +201,7 @@ html {
   width: 100%;
   bottom: 0;
   background-color: white;
-  border-top: 1px solid grey;
+  border-top: 1px solid #ddd;
   /*padding-top: 10px;*/
 }
 
