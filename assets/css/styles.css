@@ -87,9 +87,9 @@
 /*=============== CLASSIC ===============*/
 html,
 body {
+
   height: 100%;
   margin: 0;
-  padding:0;
   font-family: var(--body-font);
   color:var(--body-font);
 }
@@ -100,15 +100,13 @@ html {
 }
 
 /*=============== HEADER ===============*/
-
-
-
 .header {
   text-align: center;
   width: 100%;
+  position:fixed;
   top:0;
   left: 0;
-  background-color: transparent;
+  background-color: white;
   border-bottom:1px solid #ddd;
 }
 .title_container{
@@ -126,8 +124,10 @@ html {
 
 /*===============  MAIN  ===============*/
 .main {
+  padding-top: 10%; /* Ajustez cette valeur en fonction de la hauteur de votre header */
+  padding-bottom: 10%px; /* Ajustez cette valeur en fonction de la hauteur de votre footer */
   height:85%;
-  background-color: #e6e9f0;
+  background-color: white;
   display:flex;
   flex-direction: column;
 }
@@ -138,7 +138,41 @@ html {
 }
 
 
+
 /*===============  HOME  ===============*/
+
+.regate-title {
+  margin: 0% 5%;
+  display:flex;
+  
+  
+}  
+.regate-title h2{
+  
+  margin:0;
+  font-size: var(--h2-font-size);
+} 
+.regate-item {
+  background-color: var(--body-color);
+  padding: 10px;
+  margin: 2.5% 5%;
+  border-radius:5px;
+  height:12%;
+  position:relative;
+}
+
+.regate-item h2{
+  position:absolute;
+  bottom:0;
+  font-size: var(--h2-font-size);
+}
+.regate-item p{
+  display: flex;
+  bottom:0;
+  font-size: var(--normal-font-size);
+}
+
+
 #json-editor{
   display:flex;
   justify-content:center;
@@ -197,6 +231,7 @@ button{
 }
 /*=============== FOOTER ===============*/
 .footer {
+  position:fixed;
   text-align: center;
   width: 100%;
   bottom: 0;
