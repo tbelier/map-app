@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Fetcher</title>
+	<meta name="author" content="Maxence LARMET" />
+
+	<link rel="stylesheet" href="./style.css">
+
+<body>
+
+	<form id="fetch-data">
+
+		<div class="input-box">
+			<label for="url">URL :</label>
+			<input type="text" name="url" id="url" required>
+		</div>
+
+		<div class="input-box">
+			<label for="method">Method :</label>
+			<select name="method" id="method" required>
+				<option value="" disabled selected hidden>Select method</option>
+				<option value="GET">GET</option>
+				<option value="POST">POST</option>
+				<option value="PUT">PUT</option>
+				<option value="DELETE">DELETE</option>
+			</select>
+		</div>
+
+		<div class="input-box" id="body-content">
+			<label for="body">Body :</label>
+			<textarea name="body" id="body" cols="30" rows="10"></textarea>
+		</div>
+
+		<button type="submit" id="send">Send request</button>
+	</form>
+
+	<div id="results">
+		<h3>Results :</h3>
+		<pre></pre>
+	</div>
+
+	<script src="./script.js"></script>
+
+</body>
+
+</html>

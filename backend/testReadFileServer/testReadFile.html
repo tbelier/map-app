@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Régates de voile</title>
+    <style>
+        .regate-item {
+            background-color: #f2f2f2;
+            padding: 10px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Liste des régates de voile</h1>
+    <div id="regates-list"></div>
+    
+    <script>
+        fetch('http://localhost:3000/titoudata')
+            .then(res => res.json())
+            .then(data => {
+                const listEl = document.getElementById('regates-list');
+                data.forEach(post => {
+                    const listItem = document.createElement('div');
+                    listItem.innerText = post.title;
+                    listItem.classList.add('regate-item')
+                    listEl.appendChild(listItem);
+                });
+            })
+            .catch(error => console.error('Erreur lors de la récupération des données:', error));
+    </script>
+</body>
+</html>
