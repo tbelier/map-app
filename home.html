@@ -35,15 +35,40 @@
   
   <!--==================== MAIN ====================-->
   <div class="main">
-    <div id="json-editor">
-      <textarea id="json-input" rows="10" cols="50"></textarea>
-      <button id="load-json">Charger JSON</button>
+    <div class="regate-title">
+      <h2>Liste des régates de voile</h2>
     </div>
+    
+    <div id="regates-list"></div>
+    
+    <script>
+        fetch('http://localhost:3000/titoudata')
+            .then(res => res.json())
+            .then(data => {
+                const listEl = document.getElementById('regates-list');
+                data.forEach(post => {
+                    const regateItem = document.createElement('div');
+                    
+                    const title = document.createElement('h2');
+                    title.innerText = post.title;
 
-    <div id="json-viewer"></div>
-    <script src="assets/js/scriptBDD.js"></script>
+                    //const description = document.createElement('p');
+                    //description.innerText = post.description;       
+
+                    const place = document.createElement('p');
+                    place.innerText = post.place;     
+                    regateItem.classList.add('regate-item');
+
+                    regateItem.appendChild(title);
+                    //regateItem.appendChild(description);
+                    regateItem.appendChild(place);
+
+                    listEl.appendChild(regateItem);
+                });
+            })
+            .catch(error => console.error('Erreur lors de la récupération des données:', error));
+    </script>
   </div>
-
 
 
 
