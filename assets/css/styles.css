@@ -98,12 +98,15 @@ body {
 html {
   scroll-behavior: smooth;
 }
-
+.body__div{
+  display:flex;
+  flex-direction: column;
+  height:100%;
+}
 /*=============== HEADER ===============*/
 .header {
   text-align: center;
   width: 100%;
-  position:fixed;
   top:0;
   left: 0;
   background-color: white;
@@ -111,7 +114,6 @@ html {
 }
 .title_container{
   position:relative;
-  top:50%;
 }
 .header h1{
   margin-left:24px;
@@ -124,23 +126,139 @@ html {
 
 /*===============  MAIN  ===============*/
 .main {
-  padding-top: 10%; /* Ajustez cette valeur en fonction de la hauteur de votre header */
-  padding-bottom: 10%px; /* Ajustez cette valeur en fonction de la hauteur de votre footer */
-  height:85%;
+  flex:1;
   background-color: white;
-  display:flex;
-  flex-direction: column;
+  overflow-y: auto;
 }
+
+
+/*===============  Login  ===============*/
+.login-form{
+  position:relative;
+  justify-content:center;
+  display:grid;
+
+  /*grid-template-columns: 1fr auto 1fr;*/
+  align-items:center;
+}
+
+.login-container{
+  margin: 0 auto;
+}
+
+.login-main{
+  position:relative;
+  display:flex;
+}
+
+.login-content{
+  flex-basis:50%;
+}
+/*===============  Login  ===============*/
+
 #map {
-  
+  z-index:0;
   height:100%;
   width: 100%;
 }
+#map-boat{
+  color: rgb(23,107,239);
+}
+#map-cross{
+  color: rgb(255,62,48);
+}
+#map-flag{
+  color: rgb(247,181,41);
+}
+#map-buoy{
+  color: rgb(23,156,82);
+}
+
+.map-icon-bar{
+  display:grid;
+  grid-template-columns: repeat(5,1fr);
+  justify-content:center;
+  position:absolute;
+  bottom:10%;
+  left:0;
+  right: 0;
+  z-index:10;
+  margin:30px;
+  
+}
+.map-icon{
+  justify-content:center;
+  display: flex;
+  position:relative;
+}
+.map-icon::before {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgb(250, 250, 250);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  width: 50px; /* ajustez la taille selon vos besoins */
+  height: 50px; /* ajustez la taille selon vos besoins */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1; /* placez la forme en arrière des icônes */
+}
 
 
+.create-validation-btn{
+  padding:10px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border: none;
+  outline:none;
+  border-radius:50px;
+  width: 35px;
+  height: 35px;
+
+}
+.map-input-name{
+  /* Taille et espacement */
+  width: 200px;
+  padding: 10px;
+  margin: 5px;
+  
+  /* Bordure et coin arrondi */
+  outline:none;
+  border:none;
+  border-radius: 50px;
+  padding-left: 20px;
+  /* Arrière-plan et couleur du texte */
+  background-color: #ffffff;
+  color: #333;
+  
+  /* Police et taille de la police */
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  
+  /* Ombre */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  
+  /* Curseur */
+  cursor: pointer;
+  
+}
+
+.map-title-container{
+  position:absolute;
+  z-index:10;
+  top:10%;
+  left:0;
+  right:0;
+  justify-content:center;
+  display:flex;
+}
 
 /*===============  HOME  ===============*/
-
+.home-main{
+  overflow-y: auto;
+  position:relative;
+}
 .regate-title {
   margin: 0% 5%;
   display:flex;
@@ -148,27 +266,24 @@ html {
   
 }  
 .regate-title h2{
-  
   margin:0;
   font-size: var(--h2-font-size);
 } 
 .regate-item {
-  background-color: var(--body-color);
-  padding: 10px;
+  background-color: #e0e4e9;
+  padding: 3px 10px;
   margin: 2.5% 5%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   border-radius:5px;
-  height:12%;
-  position:relative;
+  height:5%;
+  
+
 }
 
 .regate-item h2{
-  position:absolute;
-  bottom:0;
   font-size: var(--h2-font-size);
 }
 .regate-item p{
-  display: flex;
-  bottom:0;
   font-size: var(--normal-font-size);
 }
 
@@ -231,13 +346,12 @@ button{
 }
 /*=============== FOOTER ===============*/
 .footer {
-  position:fixed;
   text-align: center;
   width: 100%;
+  /*position: absolute;*/
   bottom: 0;
   background-color: white;
   border-top: 1px solid #ddd;
-  /*padding-top: 10px;*/
 }
 
 .footer__container {
