@@ -1,9 +1,9 @@
 const map = L.map('map').fitWorld();
 
-	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-		maxZoom: 19,
-		attribution: ''
-	}).addTo(map);
+const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 20,
+    attribution: ''
+}).addTo(map);
 
 function onLocationFound(e) {
     const radius = e.accuracy / 2;
@@ -17,10 +17,20 @@ function onLocationFound(e) {
 }
 
 function onLocationError(e) {
-    alert(e.message);
+    alert("Activez votre géolocalisation.");
+    map.setView([48.8566, 2.3522], 6);
 }
+var marker;
 
+// Gestion du clic sur la carte
+function onMapClick(e) {
+    if (marker) {
+        map.removeLayer(marker); // Suppression du marqueur existant s'il y en a un
+    }
+    marker = L.marker(e.latlng).addTo(map); // Ajout d'un nouveau marqueur à l'emplacement du clic
+}
+map.on('click', onMapClick);
 map.on('locationfound', onLocationFound);
 map.on('locationerror', onLocationError);
 
-map.locate({setView: true, maxZoom: 16});
+map.locate({setView: true});
