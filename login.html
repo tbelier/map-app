@@ -16,10 +16,6 @@
 
   <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
 
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-
-
   <!--=============== CSS ===============-->
   <link rel="stylesheet" href="assets/css/styles.css" />
 
@@ -36,22 +32,23 @@
 
     <!--==================== MAIN ====================-->
     <div class="main">
-      <div class="account__container">
-        <div class="account__sub__container">
-          <img class="account__img" src="assets/img/favicon.png" alt="Photo de profil">
-          <h1>Jack Dupont</h1>
-          
+      <div class="login-form">
+        <h1>S'identifier</h1>
+        <div class="login-container">
+          <div class="login-main">
+            <div class="login-content">
+              <h2>Connectez-vous</h2>
+              <form action="" method="post">
+                <input type="text" name="" placeholder="Nom d'utilisateur" required autofocus="">
+                <input type="password" name="" placeholder="Mot de Passe" required autofocus="">
+                <button class="login-btn" type="submit">Connexion</button>
+              </form>
+              <p class="login-account">Vous n'avez pas de compte ?<a href="register.html" class="login-link"> Enregistrez-vous</a></p>
+            </div>
+          </div>
         </div>
-        
-        <p>Responsable de la régate du Vendée Globe 2024.</p>
-        <button class="account__button__edit">Modifier le profil</button>
-      </div>
-      <div class="account__other">
       </div>
     </div>
-
-
-
 
     <!--==================== FOOTER ====================-->
     <footer class="footer">
@@ -72,7 +69,7 @@
           </li>
 
           <li>
-            <a href="#account" class="footer__link">
+            <a href="account.html" class="footer__link">
               <i class="ri-account-circle-line"></i>
               My account
             </a>
@@ -81,6 +78,9 @@
 
       </div>
     </footer>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/scripts.js"></script>
   </div>
 </body>
 
