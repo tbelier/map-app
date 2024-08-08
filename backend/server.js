@@ -13,9 +13,20 @@ app.get("/titouan", (req, res, next) => {
 });
 
 app.get("/titoudata", (req, res, next) => {
-	const data = fs.readFileSync("testReadFileServer/bdd.json", "utf8");
+	const data = fs.readFileSync("bdd/bdd.json", "utf8");
 
 	res.send(data);
+});
+
+//retourne l'objet avec l'id écrit en paramètre
+app.get("/titoudata/:id", (req, res, next) => {
+	const data = fs.readFileSync("bdd/bdd.json", "utf8");
+
+	const id = req.params.id;
+
+	const regate = JSON.parse(data).find(r => r.id == id);
+
+	res.send(regate || {});
 });
 
 app.listen("3000", () => {
