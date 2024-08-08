@@ -131,34 +131,56 @@ html {
   flex:1;
   background-color: white;
   overflow-y: auto;
+  width: 100%;
 }
 
 /*================ CREATE MAP =================*/
 .create-regate-btn
 /*===============  Login  ===============*/
 .login-form{
-  position:relative;
-  justify-content:center;
-  display:grid;
 
-  /*grid-template-columns: 1fr auto 1fr;*/
-  align-items:center;
+  width:100%;
 }
 
 .login-container{
-  position:absolute;
-  margin: 0 auto;
-}
-
-.login-main{
   position:relative;
   display:flex;
+  justify-content:center;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .login-content{
   flex-basis:50%;
+  
 }
 
+.login-form{
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+}
+.login-form .login-input {
+  /* Ajoutez ici vos styles personnalisés pour les inputs dans la classe login-form */
+  margin: 10px 0; /* Ajoute une marge supérieure et inférieure de 10px pour séparer les inputs */
+  padding: 10px; /* Ajoute un espace de rembourrage de 10px à l'intérieur des inputs */
+  width: 100%; /* Définit la largeur des inputs à 100% */
+  box-sizing: border-box; /* Inclut le rembourrage et la bordure dans la largeur et la hauteur totales */
+  border: 2px solid #ccc; /* Ajoute une bordure de 2px solide avec une couleur grise */
+  border-radius: 5px; /* Ajoute un rayon de bordure arrondie de 5px */
+  font-size: 16px; /* Modifie la taille de la police à 16px */
+  /* Ajoutez d'autres styles selon vos besoins */
+}
+
+.login-btn{
+  margin: 10px 0; /* Ajoute une marge supérieure et inférieure de 10px pour séparer les inputs */
+  padding: 10px; /* Ajoute un espace de rembourrage de 10px à l'intérieur des inputs */
+  width: 50%; /* Définit la largeur des inputs à 100% */
+  box-sizing: border-box; /* Inclut le rembourrage et la bordure dans la largeur et la hauteur totales */
+  border: 2px solid #ccc; /* Ajoute une bordure de 2px solide avec une couleur grise */
+  border-radius: 5px; /* Ajoute un rayon de bordure arrondie de 5px */
+  font-size: 16px; /* Modifie la taille de la police à 16px */
+}
 /*===============  VIEW REGATE  ===============*/
 .view-map-input-name{
   /* Taille et espacement */
