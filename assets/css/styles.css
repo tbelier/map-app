@@ -94,15 +94,17 @@ body {
   color:var(--body-font);
 }
 
-
 html {
   scroll-behavior: smooth;
 }
+
 .body__div{
+  position:relative;
   display:flex;
   flex-direction: column;
   height:100%;
 }
+
 /*=============== HEADER ===============*/
 .header {
   text-align: center;
@@ -131,7 +133,8 @@ html {
   overflow-y: auto;
 }
 
-
+/*================ CREATE MAP =================*/
+.create-regate-btn
 /*===============  Login  ===============*/
 .login-form{
   position:relative;
@@ -143,6 +146,7 @@ html {
 }
 
 .login-container{
+  position:absolute;
   margin: 0 auto;
 }
 
@@ -154,7 +158,44 @@ html {
 .login-content{
   flex-basis:50%;
 }
-/*===============  Login  ===============*/
+
+/*===============  VIEW REGATE  ===============*/
+.view-map-input-name{
+  /* Taille et espacement */
+  width: 200px;
+  padding: 10px;
+  margin: 5px;
+  
+  /* Bordure et coin arrondi */
+  outline:none;
+  border:none;
+  border-radius: 50px;
+  padding-left: 20px;
+  /* Arrière-plan et couleur du texte */
+  background-color: #ffffff;
+  color: #333;
+  
+  /* Police et taille de la police */
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  
+  /* Ombre */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  justify-content:center;
+  
+}
+
+.view-map-title-container{
+  position:absolute;
+  z-index:10;
+  top:10%;
+  left:0;
+  right:0;
+  justify-content:center;
+  display:flex;
+}
+
+/*===============  CREATE REGATE  ===============*/
 
 #map {
   z-index:0;
@@ -262,32 +303,64 @@ html {
 .regate-title {
   margin: 0% 5%;
   display:flex;
-  
-  
 }  
+
 .regate-title h2{
   margin:0;
   font-size: var(--h2-font-size);
 } 
 .regate-item {
   background-color: #e0e4e9;
-  padding: 3px 10px;
+  padding: 12px 10px;
   margin: 2.5% 5%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   border-radius:5px;
   height:5%;
-  
+  position:relative;
+  display:flex;
+}
+.regate-itemG {
+  width:30%;
+  position:relative;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.regate-itemD {
+  width:70%;
+  padding-left: 10px;
+  position:relative;
+  align-items: center;
 
 }
 
 .regate-item h2{
-  font-size: var(--h2-font-size);
+  white-space: nowrap;       /* Empêche le texte de revenir à la ligne */
+  overflow: hidden;          /* Cache le contenu qui dépasse */
+  text-overflow: ellipsis;   /* Ajoute des points de suspension (...) pour indiquer qu'il y a du contenu masqué */
+  max-width: 90%;          /* Largeur maximale du conteneur où le texte sera tronqué */
+  
+  font-size: var(--h3-font-size);
 }
 .regate-item p{
+  margin:0;
   font-size: var(--normal-font-size);
 }
 
+.image-user{
+  background-color: white;
+  width: 80%;
+  height:auto;
 
+  border-radius: 50%; /* Assurer que l'image à l'intérieur du cercle est également ronde */
+}
+
+/*============================= A SUPP ======================*/
+/*
+button{
+  padding:10px 20px;
+  cursor:pointer;
+}
 #json-editor{
   display:flex;
   justify-content:center;
@@ -298,19 +371,13 @@ json-input{
 width: 70%;
 margin-right: 10px;
 }
-
-button{
-  padding:10px 20px;
-  cursor:pointer;
-}
-
 #json-viewer{
   white-space: pre-wrap;
   background-color: #fff;
   padding:20px;
   border: 1px solid #ddd;
 }
-
+*/
 /*=============== ACCOUNT ==============*/
 .account__container {
   margin-top:10px;
@@ -344,11 +411,13 @@ button{
   border: 4px solid #ccc;
   border-radius: 50%;
 }
+
 /*=============== FOOTER ===============*/
+
 .footer {
   text-align: center;
   width: 100%;
-  /*position: absolute;*/
+  position: absolute;
   bottom: 0;
   background-color: white;
   border-top: 1px solid #ddd;
