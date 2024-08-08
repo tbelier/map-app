@@ -4,7 +4,9 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 20,
     attribution: ''
 }).addTo(map);
-
+var OpenSeaMap = L.tileLayer('https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png', {
+	attribution: 'Map data: &copy; <a href="http://www.openseamap.org">OpenSeaMap</a> contributors'
+}).addTo(map);
 //Gérer le cas où on se localise
 function onLocationFound(e) {
     const radius = e.accuracy / 2;
