@@ -28,42 +28,78 @@
       <div class="title_container">
         <h1>Poseidon</h1>
       </div>
-    </header>  
-    
+    </header>
+
     <!--==================== MAIN ====================-->
     <div class="home-main">
+      <a class="regate-title"href="createRegate.html">
+        <h2>Vous souhaitez créer une régate ?</h2>
+      </a>
+      <div class="create-regate-btn"></div>
+
       <div class="regate-title">
-        <h2>Liste des régates de voile</h2>
+        <h2>Vous souhaitez rejoindre une régate ?</h2>
+        <a href=""></a>
       </div>
-      
-      <div id="regates-list"></div>
-      
+
+      <div id="regates-list">
+        <div class="cercleImg"></div>
+      </div>
+
       <script>
-          fetch('http://localhost:3000/titoudata')
-              .then(res => res.json())
-              .then(data => {
-                  const listEl = document.getElementById('regates-list');
-                  data.forEach(post => {
-                      const regateItem = document.createElement('div');
-                      
-                      const title = document.createElement('h2');
-                      title.innerText = post.title;
 
-                      //const description = document.createElement('p');
-                      //description.innerText = post.description;       
+        fetch('http://localhost:3000/titoudata')
+          .then(res => res.json())
+          .then(data => {
+            const listEl = document.getElementById('regates-list');
+            data.forEach(post => {
+            const regateItem = document.createElement('div');
+            regateItem.classList.add('regate-item');
+            regateItem.id = post.id;
 
-                      const place = document.createElement('p');
-                      place.innerText = post.place;     
-                      regateItem.classList.add('regate-item');
+            // Partie de Gauche
+            // Créer l'élément image utilisateur
+            const regateItemG = document.createElement('div');
+            regateItemG.classList.add('regate-itemG');
+            const imageUser = document.createElement('img');
+            imageUser.src = './assets/img/image.png'; // Spécifiez le chemin de votre image
+            imageUser.alt = 'Description de l\'image'; // Ajoutez une description pour l'accessibilité
+            imageUser.classList.add("image-user")
+            regateItemG.appendChild(imageUser);
 
-                      regateItem.appendChild(title);
-                      //regateItem.appendChild(description);
-                      regateItem.appendChild(place);
+            // Partie de Droite
+            const regateItemD = document.createElement('div');
+            regateItemD.classList.add('regate-itemD');
+            const title = document.createElement('h2');
+            title.innerText = post.nom;
+            const date = document.createElement('p');
+            date.innerHTML = `<i class="ri-calendar-todo-line"></i> ${post.date}`;
+            const place = document.createElement('p');
+            place.innerHTML = `<i class="ri-compass-3-line"></i> ${post.place}`;
+            const host = document.createElement('p');
+            host.innerHTML = `<i class="ri-account-circle-line"></i> ${post.host}`;
+            regateItemD.appendChild(title);
+            regateItemD.appendChild(host);
+            regateItemD.appendChild(place);
+            regateItemD.appendChild(date);
 
-                      listEl.appendChild(regateItem);
-                  });
+
+
+            regateItem.appendChild(regateItemG);
+            regateItem.appendChild(regateItemD);
+            listEl.appendChild(regateItem);
+            });
+            
+            // Ajoute une fonction au panneau. Cette fonction fait que le panneau renvoie son identifiant quand il se fait cliquer dessus
+            document.querySelectorAll(".regate-item").forEach(regate => {
+              regate.addEventListener("click", () => {
+                window.location.href = "viewRegate.html?id="+regate.id // la fonction clique renvoie sur une autre page avec l'identifiant en paramètre
               })
-              .catch(error => console.error('Erreur lors de la récupération des données:', error));
+            })
+          })
+          .catch(error => console.error('Erreur lors de la récupération des données:', error));
+
+
       </script>
     </div>
 
