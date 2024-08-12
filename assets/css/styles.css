@@ -160,6 +160,7 @@ html {
   align-items: center;
   flex-direction: column;
 }
+
 .login-form .login-input {
   /* Ajoutez ici vos styles personnalisés pour les inputs dans la classe login-form */
   margin: 10px 0; /* Ajoute une marge supérieure et inférieure de 10px pour séparer les inputs */
@@ -233,7 +234,20 @@ html {
 #map-flag{
   color: rgb(247,181,41);
 }
-#map-buoy{
+#map-original-flag{
+  color: rgb(23,156,82);
+}
+
+.map-boat{
+  fill: navy;
+}
+.map-cross{
+  color: rgb(255,62,48);
+}
+.map-flag{
+  color: rgb(247,181,41);
+}
+.map-original-flag{
   color: rgb(23,156,82);
 }
 
